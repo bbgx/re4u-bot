@@ -14,12 +14,12 @@ def compare_rates(previous_rate, current_rate):
     if previous_rate is None:
         previous_rate = current_rate
     else:
-        if current_rate > previous_rate:
+        if round(current_rate, 2) > round(previous_rate, 2):
             event = Event(public_key=private_key.public_key.hex(), content=f"O dólar subiu! O dólar está R$ {current_rate:.2f}.")
             private_key.sign_event(event)
             relay_manager.publish_event(event)
             print('Posted')
-        elif current_rate < previous_rate:
+        elif round(current_rate, 2) < round(previous_rate, 2):
             event = Event(public_key=private_key.public_key.hex(), content=f"O dólar caiu! O dólar está R$ {current_rate:.2f}.")
             private_key.sign_event(event)
             relay_manager.publish_event(event)
