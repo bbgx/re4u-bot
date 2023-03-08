@@ -1,0 +1,5 @@
+cachetools
+pytz
+requests
+nostr
+python-dotenv
