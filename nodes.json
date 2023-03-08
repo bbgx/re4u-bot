@@ -1,26 +1,10 @@
 [
     {
         "url": "wss://nostr-pub.wellorder.net",
-        "name": "WellOrder"
+        "name": "wellorder"
     },
     {
         "url": "wss://relay.damus.io",
-        "name": "Damus"
-    },
-    {
-        "url": "wss://nostr.btcmp.com",
-        "name": "btcmp"
-    },
-    {
-        "url": "wss://nostr.itas.li",
-        "name": "itas"
-    },
-    {
-        "url": "wss://nostr.mom",
-        "name": "mom"
-    },
-    {
-        "url": "wss://nostrical.com",
-        "name": "nostrical"
+        "name": "damaus"
     }
 ]
