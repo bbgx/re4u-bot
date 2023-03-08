@@ -16,4 +16,4 @@ while True:
             cache['previous_rate'] = previous_rate
 
 
-    time.sleep(120)
+    time.sleep(3600)
