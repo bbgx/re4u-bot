@@ -9,6 +9,10 @@ COPY requirements.txt .
 # Copy nodes file
 COPY nodes.json .
 
+# Change timezone
+RUN apt update && apt install tzdata -y
+ENV TZ="America/Sao_Paulo"
+
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
