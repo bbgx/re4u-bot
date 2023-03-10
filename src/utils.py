@@ -20,15 +20,12 @@ def compare_rates(previous_rate, current_rate):
             event = Event(public_key=private_key.public_key.hex(), content=f"O dólar subiu! O dólar está R$ {current_rate:.2f}.")
             private_key.sign_event(event)
             relay_manager.publish_event(event)
-            print('Just posted a new nostr post!')
         elif round(current_rate, 2) < round(previous_rate, 2):
             event = Event(public_key=private_key.public_key.hex(), content=f"O dólar caiu! O dólar está R$ {current_rate:.2f}.")
             private_key.sign_event(event)
             relay_manager.publish_event(event)
-            print('Just posted a new nostr post!')
         elif round(current_rate, 2) == round(previous_rate, 2):
             event = Event(public_key=private_key.public_key.hex(), content=f"O dólar continua R$ {current_rate:.2f}. Não acho que quem ganhar ou quem perder, nem quem ganhar nem perder, vai ganhar ou perder. Vai todo mundo perder..")
             private_key.sign_event(event)
             relay_manager.publish_event(event)
-            print('Just posted a new nostr post!')
     return current_rate
