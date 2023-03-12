@@ -11,7 +11,7 @@ def reset_cache():
 
 def get_and_compare_rate():
     current_time = datetime.now(timezone)
-    if current_time.hour >= 10 and current_time.hour < 18:
+    if current_time.weekday() < 5 and current_time.hour >= 10 and current_time.hour < 18:
         current_rate = get_current_rate()
 
         if current_time.hour != 10 or current_time.minute != 0:
