@@ -12,6 +12,9 @@ COPY requirements.txt .
 # Copy nodes file
 COPY nodes.json .
 
+# Copy sonar file
+COPY sonar-project.properties .
+
 # Change timezone
 RUN apt update && apt install -y --no-install-recommends tzdata
 ENV TZ="America/Sao_Paulo"
