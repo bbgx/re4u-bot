@@ -18,9 +18,12 @@ def compare_rates(previous_rate=None, current_rate=None):
     if current_rate is None:
         return None
 
+    if previous_rate is None:
+        message = f"O dólar abriu o mercado custando R$ {current_rate:.2f}."
+        post_to_relay(message)
+
     if previous_rate is not None:
         rate_diff = round(current_rate, 2) - round(previous_rate, 2)
-
         if rate_diff > 0:
             message = f"O dólar subiu! O dólar está R$ {current_rate:.2f}."
         elif rate_diff < 0:
