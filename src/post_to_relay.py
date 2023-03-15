@@ -1,6 +1,6 @@
 import ssl
 import time
-from src.config import private_key, relay_manager
+from .config import private_key, relay_manager
 from dotenv import load_dotenv
 from nostr.event import Event
 

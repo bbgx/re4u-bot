@@ -1,6 +1,6 @@
 import requests
-from src.post_to_relay import post_to_relay
-from src.config import BASE_URL
+from .post_to_relay import post_to_relay
+from .config import BASE_URL
 
 def get_current_rate():
     try:
