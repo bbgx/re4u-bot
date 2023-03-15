@@ -11,15 +11,24 @@ def reset_cache():
 
 def get_and_compare_rate():
     current_time = datetime.now(timezone)
-    if current_time.weekday() < 5 and current_time.hour >= 10 and current_time.hour < 18:
+    if is_weekday(current_time) and is_business_hours(current_time):
         current_rate = get_current_rate()
 
-        if current_time.hour != 10 or current_time.minute != 0:
+        if not is_hour_beginning(current_time):
             compare_rates(cache.get('previous_rate'), current_rate)
         
         cache['previous_rate'] = current_rate
 
-schedule.every().hour.at(":00").do(get_and_compare_rate)
+def is_weekday(current_time):
+    return current_time.weekday() < 5
+
+def is_business_hours(current_time):
+    return 10 <= current_time.hour < 23
+
+def is_hour_beginning(current_time):
+    return current_time.hour == 10 and current_time.minute == 0
+
+schedule.every().minute.do(get_and_compare_rate)
 schedule.every().day.at("00:00").do(reset_cache)
 
 while True:

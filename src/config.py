@@ -8,16 +8,22 @@ from nostr.key import PrivateKey
 
 load_dotenv()
 
-BASE_URL = os.getenv('BASE_URL')
+BASE_URL = os.getenv('BASE_URL', default='https://api.example.com')
 
-timezone = pytz.timezone("America/Sao_Paulo")
+TIMEZONE_NAME = "America/Sao_Paulo"
+timezone = pytz.timezone(TIMEZONE_NAME)
 
-cache = TTLCache(maxsize=1, ttl=3600)
+CACHE_MAXSIZE = 1
+CACHE_TTL = 3600
+cache = TTLCache(maxsize=CACHE_MAXSIZE, ttl=CACHE_TTL)
 
-with open("nodes.json", "r") as f:
-  nodes = json.load(f)
+NODES_FILENAME = "nodes.json"
+with open(NODES_FILENAME, "r") as f:
+    nodes = json.load(f)
+
 relay_manager = RelayManager()
 for node in nodes:
-  relay_manager.add_relay(node["url"])
+    relay_manager.add_relay(node["url"])
 
-private_key = PrivateKey.from_nsec(os.getenv('NSEC_KEY'))
+PRIVATE_KEY_NSEC = os.getenv('NSEC_KEY')
+private_key = PrivateKey.from_nsec(PRIVATE_KEY_NSEC)
