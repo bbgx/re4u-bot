@@ -1,6 +1,6 @@
 import ssl
 import time
-from config import private_key, relay_manager
+from src.config import private_key, relay_manager
 from dotenv import load_dotenv
 from nostr.event import Event
 
@@ -10,7 +10,7 @@ def post_to_relay(message):
     with relay_manager_connection() as connection:
         event = create_and_sign_event(message)
         connection.publish_event(event)
-        print("Message published.")
+        print(message)
 
 def relay_manager_connection():
     class Connection:

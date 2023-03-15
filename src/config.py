@@ -8,7 +8,7 @@ from nostr.key import PrivateKey
 
 load_dotenv()
 
-BASE_URL = os.getenv('BASE_URL', default='https://api.example.com')
+BASE_URL = os.getenv('BASE_URL')
 
 TIMEZONE_NAME = "America/Sao_Paulo"
 timezone = pytz.timezone(TIMEZONE_NAME)

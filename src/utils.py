@@ -1,6 +1,6 @@
 import requests
-from config import BASE_URL
-from post_to_relay import post_to_relay
+from src.post_to_relay import post_to_relay
+from src.config import BASE_URL
 
 def get_current_rate():
     try:
@@ -14,15 +14,13 @@ def get_current_rate():
 
 def compare_rates(previous_rate=None, current_rate=None):
     current_rate = current_rate or get_current_rate()
-    
+
     if current_rate is None:
         return None
 
     if previous_rate is None:
         message = f"O dólar abriu o mercado custando R$ {current_rate:.2f}."
-        post_to_relay(message)
-
-    if previous_rate is not None:
+    else:
         rate_diff = round(current_rate, 2) - round(previous_rate, 2)
         if rate_diff > 0:
             message = f"O dólar subiu! O dólar está R$ {current_rate:.2f}."
@@ -31,6 +29,5 @@ def compare_rates(previous_rate=None, current_rate=None):
         else:
             message = f"O dólar continua R$ {current_rate:.2f}. Não acho que quem ganhar ou quem perder, nem quem ganhar nem perder, vai ganhar ou perder. Vai todo mundo perder."
 
-        post_to_relay(message)
-
+    post_to_relay(message)
     return current_rate
