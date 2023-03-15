@@ -38,6 +38,7 @@ To run the program, run the following command:
 ```bash
 └─$ python main.py
 ```
+The program will start monitoring the forex rate and sending events to the Nostr network when the rate changes.
 
 ## Testing
 To run the unit tests, execute the following command:
@@ -45,7 +46,6 @@ To run the unit tests, execute the following command:
 └─$ python -m unittest tests/*.py
 ```
 
-The program will start monitoring the forex rate and sending events to the Nostr network when the rate changes.
 
 ## License
 
