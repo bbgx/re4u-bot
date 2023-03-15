@@ -13,7 +13,7 @@ COPY requirements.txt .
 COPY nodes.json .
 
 # Change timezone
-RUN apt update && apt install tzdata -y
+RUN apt update && apt install tzdata -y --no-install-recommends
 ENV TZ="America/Sao_Paulo"
 
 # Install dependencies
