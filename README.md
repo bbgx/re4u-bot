@@ -27,7 +27,7 @@ This is a simple Python program that monitors the USD/BRL forex rate and sends a
 
 ```bash
 PRIVATE_KEY=your_private_key_here
-BASE_URL=your_relay_manager_url_here
+BASE_URL=api_url_here
 ```
 </ol>
 
