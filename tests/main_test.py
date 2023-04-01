@@ -17,8 +17,8 @@ class TestHelperFunctions(unittest.TestCase):
         self.assertFalse(is_business_hours(outside_business_hours))
 
     def test_is_hour_beginning(self):
-        at_hour_beginning = datetime(2023, 3, 13, 10, 0)
-        not_at_hour_beginning = datetime(2023, 3, 13, 10, 1)
+        at_hour_beginning = datetime(2023, 3, 13, 9, 0)
+        not_at_hour_beginning = datetime(2023, 3, 13, 9, 1)
         self.assertTrue(is_hour_beginning(at_hour_beginning))
         self.assertFalse(is_hour_beginning(not_at_hour_beginning))
 
