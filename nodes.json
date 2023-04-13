@@ -6,5 +6,9 @@
     {
         "url": "wss://relay.damus.io",
         "name": "damaus"
+    },
+    {
+        "url": "wss://eden.nostr.land",
+        "name": "eden"
     }
 ]
